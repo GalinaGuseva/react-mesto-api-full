@@ -1,0 +1,13 @@
+.photo-card__text {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #000;
+  padding: 0;
+  margin: 21.23px 0 30px 21px;
+}

@@ -1,0 +1,22 @@
+.photo-card__like {
+  width: 22px;
+  height: 19px;
+  border: none;
+  padding: 0;
+  background-image: url(../../../images/like.svg);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+}
+
+.photo-card__like:hover {
+  opacity: 60%;
+}

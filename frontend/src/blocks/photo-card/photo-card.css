@@ -1,0 +1,16 @@
+.photo-card {
+  display: flex;
+  max-width: 282px;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+@media screen and (max-width: 900px) {
+  photo-card {
+    max-width: 240px;
+  }
+}

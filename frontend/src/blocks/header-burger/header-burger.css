@@ -1,0 +1,23 @@
+.header-burger {
+  display: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  align-self: flex-end;
+  right: 0px;
+  bottom: 30px;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.header-burger:hover {
+    opacity: .7;
+}
+
+@media screen and (max-width: 767px) {
+  .header-burger {
+    display: block;    
+  }
+}

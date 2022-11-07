@@ -1,0 +1,10 @@
+.photo-card__delete-top {
+  max-width: 18px;
+  border: none;
+  display: block;
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 1;
+}

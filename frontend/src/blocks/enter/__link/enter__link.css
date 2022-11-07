@@ -1,0 +1,16 @@
+.enter__link {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #fff;
+  margin-left: 8px; 
+}
+
+.enter__link:hover {
+    opacity: 0.8;
+}

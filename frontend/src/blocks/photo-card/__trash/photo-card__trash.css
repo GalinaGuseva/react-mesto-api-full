@@ -1,0 +1,9 @@
+.photo-card__trash {
+  max-width: 18px;
+  min-height: 19px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  flex-shrink: 0;
+}

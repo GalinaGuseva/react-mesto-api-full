@@ -1,0 +1,15 @@
+.photo-card__btn-delete {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+}
+
+.photo-card__btn-delete:hover {
+  opacity: 60%;
+}

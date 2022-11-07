@@ -1,0 +1,22 @@
+.page__center {   
+        display: flex;
+        flex-direction: column;
+        max-width: 880px;
+        padding-top: 45px;
+        flex: 1;
+        margin: 0 auto;
+      }
+      
+      @media screen and (max-width: 1023px) {
+        .page__center {
+          max-width: 581px;
+          padding-top: 36px;
+        }
+      }
+      
+      @media screen and (max-width: 767px) {
+        .page__center {
+          max-width: 282px;
+          padding-top: 28px;
+        }
+      }

@@ -1,0 +1,15 @@
+.header-burger__line_active {
+    margin-bottom: -1px;
+}
+
+.header-burger__line_active:nth-child(1) {
+    transform: translateY(1px) rotate(-45deg);
+  }
+  
+  .header-burger__line_active:nth-child(2) {
+    display: none;
+  }
+  
+  .header-burger__line_active:nth-child(3) {
+    transform: translateY(-1px) rotate(45deg);
+  }

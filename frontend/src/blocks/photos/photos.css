@@ -1,0 +1,20 @@
+.photos {
+  width: 100%;
+  flex: 1;
+  margin: 0 auto;
+  padding-bottom: 66px;
+}
+
+@media screen and (max-width: 1023px) {
+  .photos {
+    max-width: 581px;
+    padding-bottom: 58px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .photos {
+    max-width: 282px;
+    padding-bottom: 48px;
+  }
+}

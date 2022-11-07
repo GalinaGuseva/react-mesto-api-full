@@ -1,0 +1,18 @@
+.enter__input {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  justify-content: center;
+  border: none;
+  padding: 0 0 12px;
+  background-color: black;
+  color: #fff;
+  font-weight: 500;
+  border-bottom: 2px solid #CCCCCC; 
+  width: 100%;
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden; 
+  margin-bottom: 30px;
+}
