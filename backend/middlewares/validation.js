@@ -1,6 +1,6 @@
 const { celebrate, Joi } = require('celebrate');
 
-const patternUrl = /^https?:\/\/(w{3}\.)?[-\w]+\.([-\w'()!;@:%+.~#?&=/]*)/;
+const patternUrl = '^(?:http(s)?:\\/\\/)?[\\w.-]+(?:\\.[\\w.-]+)+[\\w\\-._~:/?#[\\]@!$&\'()*+,;=.]+$';
 
 const register = celebrate({
   body: Joi.object().keys({

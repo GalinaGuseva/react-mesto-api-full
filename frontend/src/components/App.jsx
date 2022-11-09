@@ -33,33 +33,44 @@ function App() {
   });
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState("");
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [email, setEmail] = useState("");  
   const [isSuccess, setIsSuccess] = useState(false);
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    const tockenCheck = () => {
-      if (!localStorage.getItem("jwt")) return;
-      const jwt = localStorage.getItem("jwt");
-      auth.getContent(jwt).then((res) => {
+    authCheck();
+  }, []);
+
+  React.useEffect(() => {
+    isLoggedIn && navigate("/");
+  }, [isLoggedIn]);
+
+
+  const authCheck = () => {
+     api
+      .getUserInfo()
+      .then((res) => {
         if (res) {
           setEmail(res.data.email);
           setLoggedIn(true);
           navigate("/");
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    };
-    tockenCheck();
-  }, [navigate]);
+  };
+  
 
-  const handleLogin = (data) => {
+  const handleLogin = (email, password) => {
     return auth
-      .login(data)
-      .then((data) => {
-        if (!data.token) return;
-        localStorage.setItem("jwt", data.token);
+      .login(email, password)
+      .then((res) => {
+        if (res.message) 
+        // localStorage.setItem("jwt", data.token);
         setLoggedIn(true);
+        setEmail(res.data.email);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
@@ -86,15 +97,22 @@ function App() {
       });
   };
 
-  function handleSignOut() {
-    localStorage.removeItem("jwt");
-    setLoggedIn(false);
-    navigate("/signin");
-    setEmail("");
-  }
+  const handleSignOut = () => {
+   // localStorage.removeItem("jwt");
+     auth
+      .logout()
+      .then(() => {
+         setLoggedIn(false);
+         navigate("/signin");
+         setEmail("");
+      })
+      .catch((err) => {
+        console.log(err);
+      });  
+  };
 
   React.useEffect(() => {
-    if (localStorage.getItem("jwt") && email) {
+    if (isLoggedIn) {
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, initialCards]) => {
           setCurrentUser(userData);
@@ -103,16 +121,9 @@ function App() {
         .catch((err) => {
           console.log(err);
           navigate("/signin");
-        })
-        .finally(() => {
-          setTimeout(showContent, 2000);
-        });
+        })        
     }
-  }, [isLoggedIn]);
-
-  const showContent = () => {
-    setIsLoaded(true);
-  };
+  }, [isLoggedIn]); 
 
   function handleAddPlaceSubmit(data) {
     api
@@ -240,8 +251,7 @@ function App() {
                 onEditAvatar={handleEditAvatarClick}
                 onCardClick={handleCardClick}
                 onCardLike={handleCardLike}
-                onCardDelete={handleCardDelete}
-                isLoaded={isLoaded}
+                onCardDelete={handleCardDelete}                
               />
             </ProtectedRoute>
           }

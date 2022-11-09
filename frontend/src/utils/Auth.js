@@ -1,14 +1,20 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+//export const BASE_URL = process.env.NODE_ENV === 'development'
+//? 'http://localhost:3000'
+//: 'https://api.galamesto.students.nomoredomains.icu';
 
-const request = ({ url, method = "POST", token, data }) => {
+export const BASE_URL = 'http://localhost:3000';
+
+
+const request = ({ url, method = "POST", data }) => {
   return fetch(`${BASE_URL}${url}`, {
     method: method,
+    credentials: 'include',
     headers: {
-      "Content-Type": "application/json",
-      ...(!!token && { Authorization: `Bearer ${token}` }),
+      'Content-Type': 'application/json',
     },
-    ...(!!data && { body: JSON.stringify(data) }),
-  }).then((res) => {
+    body: JSON.stringify({ data }),
+  })
+    .then((res) => {
     if (res.ok) {
       return res.json();
     }
@@ -21,19 +27,18 @@ export function register({ email, password }) {
     url: "/signup",
     data: { email, password },
   });
-}
+};
 
 export function login({ email, password }) {
   return request({
     url: "/signin",
     data: { email, password },
   });
-}
+};
 
-export function getContent(token) {
+export function logout() {
   return request({
-    url: "/users/me",
-    method: "GET",
-    token,
+    url: "/signout"    
   });
-}
+};
+

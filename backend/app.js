@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
@@ -6,17 +8,20 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const routes = require('./routes');
 const errorHandler = require('./middlewares/errors/errorHandler');
+const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
+const { PORT = 3001 } = process.env;
 
-mongoose.connect(MONGO_URL);
+mongoose.connect('mongodb://localhost:27017/mesto');
 
 const app = express();
 
 const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
 
 app.use(express.json());
+
+app.use(cors);
 app.use(cookieParser());
 app.use(helmet());
 app.use(limiter);
@@ -26,4 +31,6 @@ app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+});

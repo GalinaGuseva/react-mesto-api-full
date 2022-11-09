@@ -1,6 +1,5 @@
 {
-  "name": "frontend",
-  "homepage": ".",
+  "name": "react-mesto-api-full",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
