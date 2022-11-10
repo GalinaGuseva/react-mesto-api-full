@@ -51,7 +51,7 @@ function App() {
       .getUserInfo()
       .then((res) => {
         if (res) {
-          setEmail(res.data.email);
+          setEmail(res.email);
           setLoggedIn(true);
           navigate("/");
         }
@@ -69,7 +69,7 @@ function App() {
         if (res.message) 
         // localStorage.setItem("jwt", data.token);
         setLoggedIn(true);
-        setEmail(res.data.email);
+        setEmail(res.email);
         navigate("/");
       })
       .catch((err) => {
@@ -80,9 +80,9 @@ function App() {
       });
   };
 
-  const handleRegister = (data) => {
+  const handleRegister = ({ email, password }) => {
     auth
-      .register(data)
+      .register({ email, password })
       .then((res) => {
         if (res) {
           setIsSuccess(true);
