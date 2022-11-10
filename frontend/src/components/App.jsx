@@ -167,6 +167,8 @@ function App() {
   }
 
   function handleCardDelete(card) {
+    const isOwn = card.owner === currentUser._id;
+    if (isOwn) {
     api
       .deleteCard(card._id)
       .then(() => {
@@ -174,6 +176,7 @@ function App() {
       })
       .catch((err) => console.log(err));
   }
+};
 
   function handleEditAvatarClick(e) {
     setIsEditAvatarPopupOpen(true);

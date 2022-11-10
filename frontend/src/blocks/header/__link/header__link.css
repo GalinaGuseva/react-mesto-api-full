@@ -1,20 +1,19 @@
 .header__link {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.22;    
-    text-decoration: none;
-    color: white;
-  }
-  
-  .header__link:hover {
-    opacity: 0.8;
-  }
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  text-decoration: none;
+  color: white;
+}
 
-  @media screen and (max-width: 767px) {
-    .header__link {
-      font-size: 14px;      
-    }
+.header__link:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 767px) {
+  .header__link {
+    font-size: 14px;
   }
-  
+}

@@ -69,29 +69,14 @@ class Api {
   }
 
   //Постановка и снятие лайка
-  toggleLikeCard(cardId, isLiked) {       
+  toggleLikeCard(cardId, isLiked) { 
+    const method = isLiked ? "PUT" : "DELETE";      
     return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: isLiked ? "PUT" : "DELETE", 
+      method: method, 
       credentials: 'include',
       headers: this._headers,
     }).then((res) => this._getResponse(res));
-  }
-
-  likeCard(cardId) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: 'PUT',
-      credentials: 'include',
-      headers: this._headers,
-    }).then((res) => this._getResponse(res));
-  }
-
-  dislikeCard(cardId) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      credentials: 'include',
-     headers: this._headers,
-   }).then((res) => this._getResponse(res));
-  }
+  } 
 }
 
 const serverUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://api.galamesto.students.nomoredomains.icu';

@@ -79,7 +79,7 @@ const updateUser = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь с таким id не найден');
     })
-    .then((user) => res.send({ name: user.name, about: user.about }))
+    .then((user) => res.send({ name: user.name, about: user.about, avatar: user.avatar }))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         next(new BadRequestError('Переданы некорректные данные'));

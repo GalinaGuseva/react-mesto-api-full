@@ -50,16 +50,17 @@ export default function Main({
 
       <section className="photos" aria-label="Фотографии мест">
         <ul className="photos__list">
-          {cards.map((card) => (
-            <li key={card._id}>
+          {cards.map((card) => {
+            return(            
               <Card
+                key={card._id}
                 card={card}
                 onCardClick={onCardClick}
                 onCardLike={onCardLike}
                 onCardDelete={onCardDelete}
               />
-            </li>
-          ))}
+            );     
+          })}
         </ul>
       </section>
     </main>
