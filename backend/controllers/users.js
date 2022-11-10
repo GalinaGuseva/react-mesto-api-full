@@ -122,6 +122,13 @@ const getUserId = (req, res, next) => {
     });
 };
 
+const logout = (req, res) => {
+  res.clearCookie('jwt', {
+    httpOnly: true,
+    sameSite: true,
+  }).send({ message: 'Вы вышли' });
+};
+
 module.exports = {
   getUsers,
   getUserId,
@@ -129,5 +136,6 @@ module.exports = {
   updateUser,
   updateAvatar,
   login,
+  logout,
   getCurrentUser,
 };

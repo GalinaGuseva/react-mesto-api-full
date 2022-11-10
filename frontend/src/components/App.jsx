@@ -51,16 +51,15 @@ function App() {
       .getUserInfo()
       .then((res) => {
         if (res) {
+          console.log(res.email);
           setEmail(res.email);
           setLoggedIn(true);
-          navigate("/");
         }
-      })
+      })             
       .catch((err) => {
         console.log(err);
       });
-  };
-  
+  };  
 
   const handleLogin = (email, password) => {
     return auth
@@ -68,8 +67,8 @@ function App() {
       .then((res) => {
         if (res.message) 
         // localStorage.setItem("jwt", data.token);
-        setLoggedIn(true);
         setEmail(res.email);
+        setLoggedIn(true);        
         navigate("/");
       })
       .catch((err) => {
@@ -104,7 +103,7 @@ function App() {
       .then(() => {
          setLoggedIn(false);
          navigate("/signin");
-         setEmail("");
+         setEmail('');
       })
       .catch((err) => {
         console.log(err);
