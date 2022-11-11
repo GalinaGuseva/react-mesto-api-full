@@ -6,6 +6,12 @@ const { register, signin } = require('../middlewares/validation');
 const users = require('./users');
 const cards = require('./cards');
 
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 router.post('/signin', signin, login);
 router.post('/signup', register, createUser);
 router.post('/signout', logout);

@@ -68,8 +68,7 @@ class Api {
     }).then((res) => this._getResponse(res));
   }
 
-  //Постановка и снятие лайка
- 
+  //Постановка и снятие лайка 
   likeCard(cardId) {     
     return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: "PUT", 

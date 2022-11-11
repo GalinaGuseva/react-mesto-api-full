@@ -71,7 +71,7 @@ function App() {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err);        
         setLoggedIn(false);
         setIsSuccess(false);
         setIsInfoPopupOpen(true);
