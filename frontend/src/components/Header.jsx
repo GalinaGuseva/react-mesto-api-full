@@ -43,40 +43,37 @@ export default function Header({ isLoggedIn, onSignOut, email }) {
                   <span
                     className={`${
                       isClickBurgerMenu
-                        ? "header-burger__line header-burger__line_active"
-                        : "header-burger__line"
+                        ? "header-burger__line"
+                        : "header-burger__line header-burger__line_active"
                     }`}
                   ></span>
                   <span
                     className={`${
                       isClickBurgerMenu
-                        ? "header-burger__line header-burger__line_active"
-                        : "header-burger__line"
+                        ? "header-burger__line"
+                        : "header-burger__line header-burger__line_active"
                     }`}
                   ></span>
                   <span
                     className={`${
                       isClickBurgerMenu
-                        ? "header-burger__line header-burger__line_active"
-                        : "header-burger__line"
+                        ? "header-burger__line"
+                        : "header-burger__line header-burger__line_active"
                     }`}
                   ></span>
                 </button>
                 <div
                   className={`${
                     isClickBurgerMenu
-                      ? "header__menu"
-                      : "header__menu header__menu_inactive"
+                      ? "header__menu header__menu_inactive"
+                      : "header__menu"
                   }`}
                 >
                   <p className="header__email">{email} </p>
                   <Link
                     to="/signin"
                     className="header__link header__link_menu"
-                    onClick={() => {
-                      handleClickBurgerMenu();
-                      onSignOut();
-                    }}
+                    onClick={onSignOut}
                   >
                     Выйти
                   </Link>
