@@ -17,7 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "scp -r ./build/* galaguss@51.250.28.173:/home/galaguss/react-mesto-api-full/frontend",
+    "deploy": "scp -r ./build/* galaguss@51.250.28.173:/home/galaguss/react-mesto-api-full/frontend/build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
