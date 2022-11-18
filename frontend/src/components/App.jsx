@@ -35,41 +35,17 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("");  
   const [isSuccess, setIsSuccess] = useState(false);
-  const navigate = useNavigate();
-
-  React.useEffect(() => {
-    authCheck();
-  }, []);
-
-  React.useEffect(() => {
-    isLoggedIn && navigate("/");
-  }, [isLoggedIn]);
-
-
-  const authCheck = () => {
-     api
-      .getUserInfo()
-      .then((res) => {
-        if (res) {
-          setEmail(res.email);
-          setLoggedIn(true);
-        }
-      })             
-      .catch((err) => {
-        console.log(err);
-      });
-  };  
+  const navigate = useNavigate();  
 
   const handleLogin = (email, password) => {
     return auth
       .login(email, password)
       .then((res) => {
-        if (res.message) 
-        // localStorage.setItem("jwt", data.token);
-        setEmail(res.email);
-        setLoggedIn(true);        
+        if (res.message) {           
+        setLoggedIn(true);              
         navigate("/");
-      })
+      }
+    })
       .catch((err) => {
         console.log(err);        
         setLoggedIn(false);
@@ -110,11 +86,17 @@ function App() {
   };
 
   React.useEffect(() => {
+    isLoggedIn && navigate('/');
+  }, [isLoggedIn]); 
+
+  React.useEffect(() => {
     if (isLoggedIn) {
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, initialCards]) => {
           setCurrentUser(userData);
           setCards(initialCards);
+          setEmail(userData.email);         
+          navigate("/");
         })
         .catch((err) => {
           console.log(err);
