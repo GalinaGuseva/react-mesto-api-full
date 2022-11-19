@@ -87,7 +87,25 @@ function App() {
 
   React.useEffect(() => {
     isLoggedIn && navigate('/');
-  }, [isLoggedIn]); 
+  }, [isLoggedIn]);
+  
+  const authCheck = () => {
+    api
+     .getUserInfo()
+     .then((res) => {
+       if (res) {
+         setEmail(res.email);
+         setLoggedIn(true);
+       }
+     })             
+     .catch((err) => {
+       console.log(err);
+     });
+ };
+
+React.useEffect(() => {
+   authCheck();
+ }, []);
 
   React.useEffect(() => {
     if (isLoggedIn) {

@@ -96,7 +96,7 @@ class Api {
   }   
 }
 
-const serverUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://api.galamesto.students.nomoredomains.icu';
+const serverUrl = process.env.NODE_ENV === 'production' ? 'https://api.galamesto.students.nomoredomains.icu' : 'http://localhost:3001';
 
 const api = new Api({
   url: serverUrl,

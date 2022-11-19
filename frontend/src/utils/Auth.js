@@ -1,6 +1,6 @@
-const BASE_URL = process.env.NODE_ENV === 'development'
-? 'http://localhost:3001'
-: 'https://api.galamesto.students.nomoredomains.icu';
+const BASE_URL = process.env.NODE_ENV === 'production'
+? 'https://api.galamesto.students.nomoredomains.icu'
+: 'http://localhost:3001';
 
 const request = ({ url, method = "POST", data }) => {
   return fetch(`${BASE_URL}${url}`, {
