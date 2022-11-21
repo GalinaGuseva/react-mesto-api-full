@@ -103,9 +103,9 @@ function App() {
      });
  };
 
-React.useEffect(() => {
-   authCheck();
- }, []);
+  React.useEffect(() => {
+     authCheck();
+   }, []);
 
   React.useEffect(() => {
     if (isLoggedIn) {
